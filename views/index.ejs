@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="popup">
+        <h3>Rename</h3>
+        <form id="changeform" action="/" method="post">
+          <input id="changeinp" type="text" name="filename" />
+          <input id="submit" type="submit" value="Change" />
+        </form>
+      </div>
+    </div>
+    <div id="main">
+      <div id="left_side">
+        <i class="ri-file-3-line"></i>
+        <i class="ri-search-line"></i>
+        <i class="ri-play-line"></i>
+        <i class="ri-github-line"></i>
+        <div id="bottom"><i class="ri-settings-5-line"></i></div>
+      </div>
+      <div id="left">
+        <div id="folder">
+          <h4>Some Folder</h4>
+          <div id="icons">
+            <i id="fileicon" class="ri-file-edit-line"></i>
+            <i id="foldericon" class="ri-folder-add-line"></i>
+            <a href="/"
+              ><i style="color: whitesmoke" class="ri-restart-line"></i
+            ></a>
+            <i class="ri-file-copy-line"></i>
+          </div>
+        </div>
+        <div class="form fileform">
+          <form action="">
+            <input type="text" name="filename" placeholder="file" />
+          </form>
+        </div>
+        <div class="form folderform">
+          <form action="">
+            <input type="text" name="foldername" placeholder="folder" />
+          </form>
+        </div>
+        <div id="files">
+          <div class="file">
+            <i class="ri-file-line"></i> first.txt
+            <div class="ficons">
+              <i id="edit" class="ri-pencil-line"></i>
+              <i class="ri-delete-bin-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="right">
+        <div id="top"></div>
+        <small>Nothing to show here...</small>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelector("#files")
+        .addEventListener("click", function (dets) {
+          if (dets.target.id == "edit") {
+            document.querySelector("#overlay").style.display = "block";
+          }
+        });
+
+      function offBoth() {
+        document.querySelectorAll(".form").forEach(function (form) {
+          form.style.display = "none";
+        });
+      }
+
+      var openedstatefileform = 0;
+      var openedstatefolderform = 0;
+      document
+        .querySelector("#fileicon")
+        .addEventListener("click", function () {
+          offBoth();
+          if (openedstatefileform === 0) {
+            document.querySelector(".fileform").style.display = "block";
+            openedstatefileform = 1;
+          } else {
+            document.querySelector(".fileform").style.display = "none";
+            openedstatefileform = 0;
+          }
+        });
+
+      document
+        .querySelector("#foldericon")
+        .addEventListener("click", function () {
+          offBoth();
+          if (openedstatefolderform === 0) {
+            document.querySelector(".folderform").style.display = "block";
+            openedstatefolderform = 1;
+          } else {
+            document.querySelector(".folderform").style.display = "none";
+            openedstatefolderform = 0;
+          }
+        });
+    </script>
+  </body>
+</html>
