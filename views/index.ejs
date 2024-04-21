@@ -49,13 +49,19 @@
           </form>
         </div>
         <div id="files">
+          <% files.forEach(function(elem){ %>
           <div class="file">
-            <i class="ri-file-line"></i> first.txt
+            <% if(elem.isDirectory()){ %>
+            <i class="ri-folder-line"></i>
+            <% } else { %>
+            <i class="ri-file-line"></i>
+            <% } %> <%= elem.name %>
             <div class="ficons">
               <i id="edit" class="ri-pencil-line"></i>
               <i class="ri-delete-bin-line"></i>
             </div>
           </div>
+          <% }) %>
         </div>
       </div>
       <div id="right">
