@@ -40,12 +40,12 @@
         </div>
         <div class="form fileform">
           <form action="/filecreate">
-            <input type="text" name="filename" placeholder="file" />
+            <input type="text" name="filename" placeholder="File" />
           </form>
         </div>
         <div class="form folderform">
           <form action="/foldercreate">
-            <input type="text" name="foldername" placeholder="folder" />
+            <input type="text" name="foldername" placeholder="Folder" />
           </form>
         </div>
         <div id="files">
@@ -58,7 +58,15 @@
             <% } %> <%= elem.name %>
             <div class="ficons">
               <i id="edit" class="ri-pencil-line"></i>
-              <i class="ri-delete-bin-line"></i>
+              <% if(elem.isDirectory()){ %>
+              <a href="/folder/delete/<%= elem.name %>"
+                ><i class="ri-delete-bin-line"></i
+              ></a>
+              <% } else { %>
+              <a href="/file/delete/<%= elem.name %>"
+                ><i class="ri-delete-bin-line"></i
+              ></a>
+              <% } %>
             </div>
           </div>
           <% }) %>

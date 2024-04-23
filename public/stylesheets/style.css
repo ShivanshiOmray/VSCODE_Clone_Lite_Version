@@ -94,6 +94,7 @@ body {
 
 .file:hover .ficons i {
   opacity: 1;
+  color: #dadada;
 }
 
 #right {

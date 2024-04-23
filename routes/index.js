@@ -23,4 +23,16 @@ router.get("/foldercreate", function (req, res, next) {
   });
 });
 
+router.get("/file/delete/:filename", function (req, res) {
+  fs.unlink(`./files/${req.params.filename}`, function () {
+    res.redirect("/");
+  });
+});
+
+router.get("/folder/delete/:filename", function (req, res) {
+  fs.rmdir(`./files/${req.params.filename}`, function () {
+    res.redirect("/");
+  });
+});
+
 module.exports = router;
