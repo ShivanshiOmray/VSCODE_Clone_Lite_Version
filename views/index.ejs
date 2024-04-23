@@ -12,7 +12,7 @@
     <div id="overlay">
       <div id="popup">
         <h3>Rename</h3>
-        <form id="changeform" action="/" method="post">
+        <form id="changeform" action="/change" method="post">
           <input id="changeinp" type="text" name="filename" />
           <input id="submit" type="submit" value="Change" />
         </form>
@@ -57,7 +57,11 @@
             <i class="ri-file-line"></i>
             <% } %> <%= elem.name %>
             <div class="ficons">
-              <i id="edit" class="ri-pencil-line"></i>
+              <i
+                id="edit"
+                data-val="<%= elem.name %>"
+                class="ri-pencil-line"
+              ></i>
               <% if(elem.isDirectory()){ %>
               <a href="/folder/delete/<%= elem.name %>"
                 ><i class="ri-delete-bin-line"></i
@@ -84,6 +88,11 @@
         .addEventListener("click", function (dets) {
           if (dets.target.id == "edit") {
             document.querySelector("#overlay").style.display = "block";
+            document.querySelector("#changeinp").value =
+              dets.target.dataset.val;
+            document
+              .querySelector("#changeform")
+              .setAttribute("action", `/change/${dets.target.dataset.val}`);
           }
         });
 

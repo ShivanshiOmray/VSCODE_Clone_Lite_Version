@@ -35,4 +35,14 @@ router.get("/folder/delete/:filename", function (req, res) {
   });
 });
 
+router.post("/change/:oldname", function (req, res) {
+  fs.rename(
+    `./files/${req.params.oldname}`,
+    `./files/${req.body.filename}`,
+    function (err) {
+      res.redirect("/");
+    }
+  );
+});
+
 module.exports = router;
