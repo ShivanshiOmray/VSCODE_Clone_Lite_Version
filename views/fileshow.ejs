@@ -79,8 +79,15 @@
         </div>
       </div>
       <div id="right">
-        <div id="top"></div>
-        <small>Nothing to show here...</small>
+        <div id="rheader">
+          <div class="opened">
+            <%= filename %>
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+        <form id="content" action="">
+          <textarea name="filedata"><%= data %></textarea>
+        </form>
       </div>
     </div>
 

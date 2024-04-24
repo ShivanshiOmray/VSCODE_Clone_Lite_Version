@@ -45,4 +45,16 @@ router.post("/change/:oldname", function (req, res) {
   );
 });
 
+router.get("/file/:filename", function (req, res, next) {
+  fs.readdir("./files", { withFileTypes: true }, function (err, files) {
+    fs.readFile(
+      `./files/${req.params.filename}`,
+      "utf-8",
+      function (err, data) {
+        res.render("fileshow", { files, filename: req.params.filename, data });
+      }
+    );
+  });
+});
+
 module.exports = router;
