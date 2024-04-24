@@ -1,8 +1,8 @@
-VSCode Clone - Lite Version:
+<h2><u> VSCode Clone - Lite Version:</u></h3>
 
 Welcome to the VSCode Clone - Lite Version repository! This project is a simplified web-based file system management application inspired by the popular Visual Studio Code (VSCode) editor.
 
-* Description 
+<h3> Description: </h3>
 
 VSCode Clone - Lite Version provides a lightweight alternative to the comprehensive features of VSCode, focusing primarily on file and folder management functionalities in a web-based environment. With its intuitive interface and essential features, it aims to streamline file system organization and enhance productivity for users.
 
